@@ -1,0 +1,114 @@
+\
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Faça o Bem — Cadastro</title>
+  <meta name="description" content="Formulário de cadastro para voluntários e doadores">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <h1 class="logo">Faça o Bem</h1>
+      <nav role="navigation" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <h2>Cadastro</h2>
+    <p>Preencha o formulário abaixo para se cadastrar como voluntário ou apoiador.</p>
+
+    <form id="cadastroForm" novalidate>
+      <fieldset>
+        <legend>Dados pessoais</legend>
+
+        <label for="nome">Nome completo</label>
+        <input id="nome" name="nome" type="text" minlength="3" required>
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="cpf">CPF</label>
+        <input id="cpf" name="cpf" type="text" inputmode="numeric" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" placeholder="000.000.000-00" required>
+
+        <label for="telefone">Telefone</label>
+        <input id="telefone" name="telefone" type="tel" inputmode="tel" pattern="^\(\d{2}\) \d{4,5}-\d{4}$" placeholder="(00) 90000-0000" required>
+
+        <label for="nascimento">Data de nascimento</label>
+        <input id="nascimento" name="nascimento" type="date" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <label for="cep">CEP</label>
+        <input id="cep" name="cep" type="text" inputmode="numeric" pattern="^\d{5}-\d{3}$" placeholder="00000-000" required>
+
+        <label for="endereco">Endereço (rua, número)</label>
+        <input id="endereco" name="endereco" type="text" required>
+
+        <label for="cidade">Cidade</label>
+        <input id="cidade" name="cidade" type="text" required>
+
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado" required>
+          <option value="">Selecione</option>
+          <option value="SP">SP</option>
+          <option value="RJ">RJ</option>
+          <option value="MG">MG</option>
+          <option value="ES">ES</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Informações adicionais</legend>
+
+        <label for="tipo">Quero me cadastrar como</label>
+        <select id="tipo" name="tipo" required>
+          <option value="voluntario">Voluntário</option>
+          <option value="doador">Doador / Apoiador</option>
+        </select>
+
+        <label for="mensagem">Mensagem (opcional)</label>
+        <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+      </fieldset>
+
+      <button type="submit">Enviar</button>
+      <p id="formMessage" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Faça o Bem</p>
+  </footer>
+
+  <script src="js/masks.js"></script>
+  <script>
+    // Progressive enhancement: use native validation then show custom message
+    const form = document.getElementById('cadastroForm');
+    const msg = document.getElementById('formMessage');
+    form.addEventListener('submit', function(e){
+      if(!form.checkValidity()){
+        e.preventDefault();
+        form.reportValidity();
+        msg.textContent = 'Por favor, corrija os campos em destaque.';
+        msg.className = 'error';
+      } else {
+        e.preventDefault();
+        msg.textContent = 'Cadastro enviado com sucesso! Obrigado por ajudar.';
+        msg.className = 'success';
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>

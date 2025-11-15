@@ -1,0 +1,24 @@
+��# Faça o Bem — Entrega (Unidade HTML5)
+
+Versão iniciante que cumpre os requisitos da atividade: 3 páginas HTML semânticas, formulário com validação HTML5, máscaras para CPF/telefone/CEP, estrutura de pastas, imagens (placeholders SVG).
+
+## Como usar
+1. Descompacte o ZIP.
+2. Abra `index.html` no navegador.
+
+## Estrutura
+```
+projeto_faca_o_bem/
+├─ index.html
+├─ projetos.html
+├─ cadastro.html
+├─ css/estilos.css
+├─ js/masks.js
+└─ img/*.svg
+```
+
+## Observações
+- Os SVGs são imagens placeholder. Substitua por imagens otimizadas (.webp/.jpgantes de entregar se desejar.
+- Os campos do formulário possuem validação nativa (atributos HTML5e máscaras via `js/masks.js`.
+
+Boa sorte na entrega!
